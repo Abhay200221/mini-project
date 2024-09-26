@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="282" border="1">
+    <tr>
+      <td width="135">Bakery_name</td>
+      <td width="131">{{ data.Bname }}</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>{{ data.place}}<br>{{ data.post }}<br>{{ data.pin }}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{ data.mail }}</td>
+    </tr>
+    <tr>
+      <td>Open_time</td>
+      <td>{{ data.Open_Time }}</td>
+    </tr>
+      <tr>
+      <td>Close_time</td>
+      <td> {{ data.Close_Time }}</td>
+    </tr>
+    <tr>
+      <td>Established_date</td>
+      <td>{{ data.estDate }}</td>
+    </tr>
+    <tr>
+      <td colspan="2"><center><a href="/myapp/UpdateProfile/{{ data.id }}">Edit Profile</a></center></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

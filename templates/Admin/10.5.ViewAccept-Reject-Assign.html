@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/ViewMoreDetails_post/">
+    {% csrf_token %}
+  <table border="1">
+    <tr>
+      <td width="142">USER_ID/NAME</td>
+      <td width="168"><label>
+        <input type="text" name="textfield" id="textfield" />
+      </label></td>
+      <td width="61"><input type="submit" name="button" id="button" value="SEARCH" /></td>
+    </tr>
+  </table>
+  <table width="410" border="1">
+
+    <tr>
+      <td>Slno</td>
+      <td>Date</td>
+      <td>UserNAME</td>
+      <td>MAIL</td>
+      <td>PHONE</td>
+      <td>Total Price</td>
+      <td>&nbsp;</td>
+    </tr>
+ {% for i in data %}
+<tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.Date }}</td>
+    <td>{{ i.USER.User_name }}</td>
+    <td>{{ i.USER.Email }}</td>
+    <td>{{ i.USER.Phone }}</td>
+    <td>{{ i.Amount }}</td>
+    <td>
+{#        <p>{% if i.Status != 'pending'%}#}
+{#            <a href="/myapp/AcceptUserOrder/{{ i.id }}">Accept_order</a>#}
+{#        </p>#}
+{#        <p>#}
+{#            <a href="/myapp/RejectUserOrder/{{ i.id }}">Reject_order</a>#}
+{#        </p>#}
+{#        {% endif %}#}
+
+    {% if i.Status == 'pending' %}
+    <p>
+        <a href="/myapp/AcceptUserOrder/{{ i.id }}">Accept_order</a>
+    </p>
+    <p>
+        <a href="/myapp/RejectUserOrder/{{ i.id }}">Reject_order</a>
+    </p>
+
+{% elif i.Status == 'Approved' %}
+    <p>Order Accepted</p>
+{% endif %}
+
+
+        {% if i.id not in assignments %}
+        <p>
+            <a href="/myapp/AssignDBoy/{{ i.id }}">Assign_DBoy</a>
+        </p>
+            {% else %}
+            <span style="color: darkgrey">Order Assigned</span>
+       {% endif %}
+    {% if i.Status == 'Rejected' %}
+    <p>Order Rejected</p>
+{% endif %}
+
+{#        {% if i.Status == 'Approved' %}#}
+{#    <p>Order Accepted</p>#}
+{#    {% if i.id not in assignments %}#}
+{#        <p>#}
+{#            <a href="/myapp/AssignDBoy/{{ i.id }}">Assign_DBoy</a>#}
+{#        </p>#}
+{#    {% else %}#}
+{#        <span style="color: darkgrey">Order Assigned</span>#}
+{#    {% endif %}#}
+{#{% elif i.Status == 'Rejected' %}#}
+{#    <p>Order Rejected</p>#}
+{#{% endif %}#}
+        <p>
+            <a href="/myapp/ViewMoreDetails/{{ i.id }}">View More Details</a>
+        </p>
+    </td>
+</tr>
+{% endfor %}
+
+
+  </table>
+</form>
+</body>
+</html>

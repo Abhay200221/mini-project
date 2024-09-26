@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/ViewDboy_post/">
+{% csrf_token %}
+  <table width="200" border="1">
+    <tr>
+      <td>DBoy_name</td>
+      <td><label>
+        <input type="text" name="search" id="textfield" />
+      </label></td>
+      <td><input type="submit" name="button" id="button" value="Search" /></td>
+    </tr>
+  </table>
+  <table width="345" border="1">
+    <tr>
+        <td width="64">SL_no</td>
+        <td width="64">DBoy_name</td>
+      <td width="114">Phone</td>
+      <td width="114">DOB</td>
+      <td width="114">Address</td>
+      <td width="114">Email</td>
+      <td width="114">Liscense_id</td>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.D_Name }}</td>
+      <td>{{ i.Phone }}</td>
+      <td>{{ i.DOB }}</td>
+      <td>{{ i.Place }}<br>{{ i.Post }}<br>{{ i.Pin }}</td>
+      <td>{{ i.Emails }}</td>
+      <td>{{ i.Liscence }}</td>
+      <td><p>&nbsp;</p>
+      <p><a href="/myapp/UpdateDBoy/{{ i.id }}">Edit</a></p>
+      <p><a href="/myapp/DeleteDeliveryboy/{{ i.id }}">Delete</a></p>
+      <p>&nbsp;</p></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>

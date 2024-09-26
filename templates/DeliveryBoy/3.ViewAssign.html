@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="576" border="1">
+    <tr>
+      <td width="65">SL_no</td>
+      <td width="111">OrderDetils</td>
+      <td width="94">Location</td>
+      <td width="55">Date</td>
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ i.ORDER_MAIN.Date }},{{ i.ORDER_MAIN.Amount }},{{ i.ORDER_MAIN.USER.User_name }},{{ i.ORDER_MAIN.USER.Place }},{{ i.ORDER_MAIN.USER.Post }}-{{ i.ORDER_MAIN.USER.Pin }},{{ i.ORDER_MAIN.USER.Phone }},{{ i.ORDER_MAIN.USER.Email }}</td>
+      <td>{{ i.ORDER_MAIN.USER.Place }}</td>
+      <td>{{ i.Assign_date }}</td>
+      <td><p><a href="#">Update</a></p>
+      <p><a href="#">Status</a></p></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+</html>

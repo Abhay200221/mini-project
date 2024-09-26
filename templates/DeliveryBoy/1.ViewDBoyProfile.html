@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+
+  <table width="200" border="1">
+
+  </table>
+  <table width="345" border="1">
+     <tr>
+      <td width="135">DeliveryBoy name</td>
+      <td width="131">{{ data.D_Name }}</td>
+    </tr>
+    <tr>
+      <td>Phone</td>
+      <td width="131">{{ data.Phone }}</td>    </tr>
+    <tr>
+      <td>DOB</td>
+      <td>{{ data.DOB }}</td>
+    </tr>
+    <tr>
+      <td>Address</td>
+        <td>{{ data.Place }}{{ data.Post }}{{ data.Pin }}</td>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>{{ data.Emails }}</td>
+    </tr>
+      <tr>
+      <td>Liscence ID</td>
+      <td>{{ data.Liscence }}</td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
